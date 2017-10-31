@@ -4,3 +4,10 @@
 <div *ngIf="selectedHero">
    <h2>{{selectedHero.name | uppercase}} es mi heroe</h2>
 </div>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium odit ratione consequuntur provident tenetur quisquam dicta, exercitationem, porro, molestiae accusantium facilis recusandae cupiditate fugit laudantium libero dolorem quaerat quam? Tempora!</p>
+<div [@popOverState]="stateName">
+  <p>Hello! I'm a helpful message.</p>
+</div>
+
+<button (mouseenter)="toggleShow()" (mouseleave)="toggleShow()">Toggle PopOver</button>

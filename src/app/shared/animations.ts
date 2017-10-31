@@ -26,3 +26,15 @@ export const scale: AnimationEntryMetadata =
       transition('inactive=>activo', animate('100ms ease-in')),
       transition('active=>inactive', animate('100ms ease-out'))
     ]);
+
+export const popOverState: AnimationEntryMetadata =
+    trigger('popOverState', [
+    state('show', style({
+        opacity: 1
+    })),
+    state('hide', style({
+        opacity: 0
+    })),
+    transition('show => hide', animate('600ms ease-out')),
+    transition('hide => show', animate('1000ms ease-in'))
+  ]);

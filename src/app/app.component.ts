@@ -1,4 +1,4 @@
-import { scale } from './shared/animations';
+import { scale, popOverState } from './shared/animations';
 import { HeroesService } from './services/hero.service';
 import { Hero } from './shared/hero';
 import { Component, OnInit, Input } from '@angular/core';
@@ -8,14 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   /*animations lo que recibe es un array de datos */
-  animations: [scale]
+  animations: [scale, popOverState]
 })
 export class AppComponent implements OnInit {
   title = 'app';
   heroes: Hero[] = [];
   selectedHero: Hero = null;
   constructor(private heroesService: HeroesService) {}
-
+  private show = false;
   ngOnInit() {
     this.getHeroes();
   }
@@ -32,6 +32,14 @@ export class AppComponent implements OnInit {
   toggleState(hero: Hero) {
     hero.state = (hero.state === 'active' ? 'inactive' : 'active');
     this.updateSelectedHero(hero);
+  }
+
+  get stateName() {
+    return this.show ? 'show' : 'hide';
+  }
+
+  toggleShow() {
+    this.show = !this.show;
   }
 
 }
