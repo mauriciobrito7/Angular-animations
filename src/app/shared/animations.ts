@@ -38,3 +38,19 @@ export const popOverState: AnimationEntryMetadata =
     transition('show => hide', animate('600ms ease-out')),
     transition('hide => show', animate('1000ms ease-in'))
   ]);
+
+export const photoState: AnimationEntryMetadata =
+    trigger('photoState',
+      [
+        state('move', style({
+          transform: 'translateX(100%)'
+        })),
+        state('enlarge', style({
+          transform: 'scale(1.5)'
+        })),
+        state('spin', style({
+          transform: 'rotateY(180deg) rotate(90deg)'
+        })),
+        transition('* => *', animate('500ms ease'))
+      ]
+    );

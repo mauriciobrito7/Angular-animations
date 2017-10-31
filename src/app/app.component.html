@@ -11,3 +11,9 @@
 </div>
 
 <button (mouseenter)="toggleShow()" (mouseleave)="toggleShow()">Toggle PopOver</button>
+<br>
+<img [@photoState]="statePhoto" src="../assets/img/[shadow] BRB Tecnostore Color.png" alt="brb" width="200px" height="200px">
+
+<button (click)="toggleStatePhoto('move')">move</button>
+<button (click)="toggleStatePhoto('enlarge')">scale</button>
+<button (click)="toggleStatePhoto('spin')">rotate</button>
