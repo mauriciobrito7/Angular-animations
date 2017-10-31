@@ -3,7 +3,7 @@ import {
   state,
   style,
   animate,
-  transition
+  transition, keyframes
 } from '@angular/animations';
 import { AnimationEntryMetadata } from '@angular/core';
 
@@ -43,6 +43,7 @@ export const photoState: AnimationEntryMetadata =
     trigger('photoState',
       [
         state('move', style({
+          opacity: 1,
           transform: 'translateX(100%)'
         })),
         state('enlarge', style({
@@ -51,6 +52,13 @@ export const photoState: AnimationEntryMetadata =
         state('spin', style({
           transform: 'rotateY(180deg) rotate(90deg)'
         })),
-        transition('* => *', animate('500ms ease'))
+        transition('* => move', animate('500ms', keyframes([
+          style({opacity: 0.11, offset: 0.1 }),
+          style({opacity: 0.35, transform: 'translatex(33%)' , offset: 0.3 }),
+          style({opacity: 0.69, transform: 'translatex(66%)' , offset: 0.6 }),
+          style({opacity: 0.9, transform: 'translatex(86%)' , offset: 0.9 }),
+        ]))),
+        transition('* => enlarge', animate('500ms ease')),
+        transition('* => spin', animate('500ms ease'))
       ]
     );
